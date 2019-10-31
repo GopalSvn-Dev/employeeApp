@@ -1,0 +1,73 @@
+<form #empForm="ngForm" (ngSubmit)="OnSubmit(empForm.value)">
+    <table>
+        <tr>
+            <td>
+                <label>Emp. Code</label>
+            </td>
+            <td>
+                <input type="text" #empId ngModel name="empId" required>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>First Name</label>
+            </td>
+            <td>
+                <input type="text" #firstName ngModel name="firstName" required>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Last Name</label>
+            </td>
+            <td>
+                <input type="text" #lastName ngModel name="lastName" required>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Gender</label>
+            </td>
+            <td>
+                <input type="text" #gender ngModel name="gender" required>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Date of Birth</label>
+            </td>
+            <td>
+                <input type="text" #dob ngModel name="dob" required>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Department</label>
+            </td>
+            <td>
+                <input type="text" #department ngModel name="department" required>
+            </td>
+        </tr>
+    </table>
+    <button [disabled]="!empForm.valid" type="submit">Add Employee</button>
+    <br>
+    <br>
+    <table class="border-collapse">
+        <tr>
+            <td class="border">Emp. Code</td>
+            <td class="border">First Name</td>
+            <td class="border">Last Name</td>
+            <td class="border">Gender</td>
+            <td class="border">Date of Birth</td>
+            <td class="border">Department</td>
+        </tr>
+        <tr *ngFor="let emp of employeeList">
+            <td class="border">{{emp.empId}}</td>
+            <td class="border">{{emp.firstName}}</td>
+            <td class="border">{{emp.lastName}}</td>
+            <td class="border">{{emp.gender}}</td>
+            <td class="border">{{emp.dob}}</td>
+            <td class="border">{{emp.department}}</td>
+        </tr>
+    </table>
+</form>
